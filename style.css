@@ -1,1 +1,19 @@
 *{box-sizing: border-box; margin:0; padding: 0;}
+.row{
+    display: flex;
+    margin: auto 4rem ;
+    justify-content: center;
+    row-gap: .5rem;
+    
+}
+.col-12 {
+    padding: 2rem;
+    
+}
+.mycardbtn{
+    display: flex;
+    width: 7rem;
+    margin-left: auto;
+}
+
+
