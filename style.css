@@ -1,7 +1,9 @@
 *{box-sizing: border-box; padding: 0; margin: 0;}
+@import url('https://fonts.googleapis.com/css2?family=Jersey+15&display=swap');
 body,.dropdown a:first-child{
   font-size: large;
 }
+
 .navbar {
     background-color:yellow;
     padding: 10px;
@@ -51,9 +53,10 @@ body,.dropdown a:first-child{
     align-items:center;
   }
   img{
-    display: block;
+    display: inline-block;
     width: 100%;
     max-width: 2rem;
+
   }
   #shopping_cart img{
     width: 100%;
