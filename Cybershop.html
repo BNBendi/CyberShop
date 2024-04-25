@@ -11,23 +11,22 @@
 </head>
 
 <body>
-    <header>
-        <h1><strong><i>CyberShop</i></strong></h1>
-    </header>
+
     <nav class="navbar">
+        <img src="./man.ico" alt="">
         <ul class="nav-list">
             <li class="nav-item"><a href="#">Main page</a></li>
-            <li class="nav-item"><a href="#">About us</a></li>
+            <li class="nav-item"><a href="./about_us.html" target="_blank">About us</a></li>
             <div class="dropdown">
                 <div class="dropdown">
                     <a class="btn  dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
                         Products
                     </a>
 
-                    <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="#">Face</a></li>
-                        <li><a class="dropdown-item" href="#">Body parts</a></li>
-                        <li><a class="dropdown-item" href="#">Sets</a></li>
+                    <ul class="dropdown-menu  justify-content-center align-items-center">
+                        <li><a class="dropdown-item p-0" href="./face.html" target="_blank">Face</a></li>
+                        <li><a class="dropdown-item p-0" href="./body_parts.html" target="_blank">Body parts</a></li>
+                        <li><a class="dropdown-item p-0" href="#">Sets</a></li>
                     </ul>
                 </div>
             </div>
@@ -36,11 +35,21 @@
                     Contact
                 </a>
 
-                <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" href="#">Discord</a></li>
-                    <li><a class="dropdown-item" href="#">Twitter</a></li>
-                    <li><a class="dropdown-item" href="#">Fandom</a></li>
+                <ul class="dropdown-menu justify-content-center">
+                    <li><a class="dropdown-item p-0" href="https://discord.com/" target="_blank">Discord</a></li>
+                    <li><a class="dropdown-item p-0" href="https://twitter.com/?lang=hu" target="_blank">X</a></li>
+                    <li><a class="dropdown-item p-0" href="https://mail.google.com/" target="_blank">Email</a></li>
                 </ul>
+                
+            </div>
+            <div class="dropdown">
+                <a class="btn  dropdown-toggle" href="#" role="button" id="shopping_cart" data-bs-toggle="dropdown">
+                    Shopping Cart<img src="./shopping-cart.png" alt="">
+                </a>
+
+                <ul class="dropdown-menu justify-content-center">
+                </ul>
+                
             </div>
         </ul>
     </nav>

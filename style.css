@@ -1,4 +1,7 @@
 *{box-sizing: border-box; padding: 0; margin: 0;}
+body,.dropdown a:first-child{
+  font-size: large;
+}
 .navbar {
     background-color:yellow;
     padding: 10px;
@@ -31,7 +34,6 @@
     background-color: yellow !important;
     outline: 0 !important;
     color:green !important;
-   
   }
   .dropdown a{
     background-color: yellow;
@@ -43,4 +45,25 @@
     color: green!important;
     padding: 0;
     margin-top: 0!important;
+  }
+  .dropdown-item a{
+    justify-content:center;
+    align-items:center;
+  }
+  img{
+    display: block;
+    width: 100%;
+    max-width: 2rem;
+  }
+  #shopping_cart img{
+    width: 100%;
+    max-width: 2rem;
+  }
+  #shopping_cart{
+    display: flex;
+    align-items: center;
+    float: right;
+  }
+  #shopping_cart span{
+    margin-left: 5px;
   }
