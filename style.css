@@ -5,53 +5,42 @@ body,.dropdown a:first-child{
 }
 
 .navbar {
-    background-color:yellow;
-    padding: 10px;
-    justify-content: center;
-    
-  }
-  
-  .nav-list {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    display: flex;
-  }
-  
-  .nav-item {
-    margin-right: 10px;
-  }
-  
-  .nav-item a {
-    text-decoration: none;
-    color: green;
-    padding: 5px;
-  }
-  
-  .nav-item a:hover {
-    background-color: #333;
-    color: #fff;
-  }
-  .dropdown{
-    background-color: yellow !important;
-    outline: 0 !important;
-    color:green !important;
-  }
-  .dropdown a{
-    background-color: yellow;
-    color: green;
-    margin-top: -7px;
-  }
-  .dropdown-menu{
-    background-color: yellow!important;
-    color: green!important;
-    padding: 0;
-    margin-top: 0!important;
-  }
-  .dropdown-item a{
-    justify-content:center;
-    align-items:center;
-  }
+  background-color: yellow;
+  justify-content: center;
+}
+
+.nav-list {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+
+}
+
+.nav-item {
+  margin-right: 20px;
+  position: relative;
+}
+
+.nav-item a {
+  text-decoration: none;
+  color: green;
+  padding: 10px;
+}
+
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  background-color: yellow;
+  text-align: center;
+  z-index: 1;
+}
+
+.dropdown:hover .dropdown-menu {
+  display: block;
+
+}
+
   img{
     display: inline-block;
     width: 100%;
