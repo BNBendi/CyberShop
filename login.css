@@ -1,0 +1,40 @@
+*{box-sizing: border-box; margin: 0; padding: 0;}
+body{
+    background-color: black;
+    color: white;
+}
+.myContainer label,input{
+    display: flex;
+    margin: 10px 0;
+    justify-content: start;
+    align-items: start;
+}
+.myContainer label{
+    font-size: 20px;
+    font-weight: bold;
+}
+button {
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background-color: #45a049;
+    opacity: 0.8;
+  }
+  input[type=text], input[type=password] {
+    width: 20%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+  }
+  #loginButton a{
+    text-decoration: none;
+    color: white;
+  }
