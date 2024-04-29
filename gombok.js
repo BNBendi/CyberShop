@@ -21,150 +21,161 @@ document.querySelectorAll('.add-to-cart-button').forEach(function(addToCartButto
             addToCartButton.classList.remove('clicked');
         }, 2000); 
     });
-});
-let listProductHTML = document.querySelector('.listProduct');
-let listCartHTML = document.querySelector('.listCart');
-let iconCart = document.querySelector('.icon-cart');
-let iconCartSpan = document.querySelector('.icon-cart span');
-let body = document.querySelector('body');
-let closeCart = document.querySelector('.close');
-let products = [];
+});// Select cart elements
+const listCartHTML = document.querySelector('.listCart');
+const iconCartSpan = document.querySelector('.icon-cart span');
+const body = document.querySelector('body');
+const iconCart = document.querySelector('.icon-cart');
+const closeCart = document.querySelector('.close');
+
+// Select all 'Add to Cart' buttons
+const addToCartButtons = document.querySelectorAll('.add-to-cart-button');
+
+// Initialize cart and products array
 let cart = [];
+let products = [];
 
-
-iconCart.addEventListener('click', () => {
-    body.classList.toggle('showCart');
-})
-closeCart.addEventListener('click', () => {
-    body.classList.toggle('showCart');
-})
-
-    const addDataToHTML = () => {
-    // remove datas default from HTML
-
-        // add new datas
-        if(products.length > 0) // if has data
-        {
-            products.forEach(product => {
-                let newProduct = document.createElement('div');
-                newProduct.dataset.id = product.id;
-                newProduct.classList.add('item');
-                newProduct.innerHTML = 
-                `<img src="${product.image}" alt="">
-                <h2>${product.name}</h2>
-                <div class="price">$${product.price}</div>
-                <button class="addCart">Add To Cart</button>`;
-                listProductHTML.appendChild(newProduct);
-            });
-        }
-    }
-    listProductHTML.addEventListener('click', (event) => {
-        let positionClick = event.target;
-        if(positionClick.classList.contains('addCart')){
-            let id_product = positionClick.parentElement.dataset.id;
-            addToCart(id_product);
-        }
-    })
-const addToCart = (product_id) => {
-    let positionThisProductInCart = cart.findIndex((value) => value.product_id == product_id);
-    if(cart.length <= 0){
-        cart = [{
-            product_id: product_id,
-            quantity: 1
-        }];
-    }else if(positionThisProductInCart < 0){
+// Function to add item to cart
+const addToCart = (productName, productId) => {
+    // Check if the product is already in the cart
+    const existingItem = cart.find(item => item.product_id === productId);
+    if (existingItem) {
+        existingItem.quantity++; // Increment quantity if already in cart
+    } else {
+        // Add new item to cart
         cart.push({
-            product_id: product_id,
+            product_id: productId,
+            name: productName,
             quantity: 1
         });
-    }else{
-        cart[positionThisProductInCart].quantity = cart[positionThisProductInCart].quantity + 1;
     }
-    addCartToHTML();
-    addCartToMemory();
+    // Update cart display
+    updateCart();
+    // Save cart to localStorage
+    saveCart();
 }
-const addCartToMemory = () => {
-    localStorage.setItem('cart', JSON.stringify(cart));
-}
-const addCartToHTML = () => {
+
+// Event listener for 'Add to Cart' buttons
+addToCartButtons.forEach(button => {
+    button.addEventListener('click', () => {
+        const card = button.closest('.mycard');
+        const productName = card.querySelector('.card-title').textContent.trim();
+        const productId = card.dataset.id;
+        addToCart(productName, productId);
+
+        // Apply CSS animation class
+        button.classList.add('added');
+        setTimeout(() => {
+            button.classList.remove('added');
+        }, 2000);
+    });
+});
+
+// Function to update cart display
+const updateCart = () => {
+    // Clear previous cart content
     listCartHTML.innerHTML = '';
     let totalQuantity = 0;
-    if(cart.length > 0){
-        cart.forEach(item => {
-            totalQuantity = totalQuantity +  item.quantity;
-            let newItem = document.createElement('div');
-            newItem.classList.add('item');
-            newItem.dataset.id = item.product_id;
 
-            let positionProduct = products.findIndex((value) => value.id == item.product_id);
-            let info = products[positionProduct];
-            listCartHTML.appendChild(newItem);
-            newItem.innerHTML = `
-            <div class="image">
-                    <img src="${info.image}">
-                </div>
-                <div class="name">
-                ${info.name}
-                </div>
-                <div class="totalPrice">$${info.price * item.quantity}</div>
-                <div class="quantity">
-                    <span class="minus"><</span>
-                    <span>${item.quantity}</span>
-                    <span class="plus">></span>
-                </div>
-            `;
-        })
-    }
+    // Iterate through items in cart
+    cart.forEach(item => {
+        totalQuantity += item.quantity;
+        const newItem = document.createElement('div');
+        newItem.classList.add('item');
+        newItem.innerHTML = `
+            <div class="name">${item.name}</div>
+            <div class="quantity">
+                <button class="minus" data-id="${item.product_id}">-</button>
+                <span>${item.quantity}</span>
+                <button class="plus" data-id="${item.product_id}">+</button>
+            </div>
+        `;
+        listCartHTML.appendChild(newItem);
+    });
+
+    // Update cart icon with total quantity
     iconCartSpan.innerText = totalQuantity;
 }
 
+// Event listener for cart item quantity buttons using event delegation
 listCartHTML.addEventListener('click', (event) => {
-    let positionClick = event.target;
-    if(positionClick.classList.contains('minus') || positionClick.classList.contains('plus')){
-        let product_id = positionClick.parentElement.parentElement.dataset.id;
-        let type = 'minus';
-        if(positionClick.classList.contains('plus')){
-            type = 'plus';
-        }
-        changeQuantityCart(product_id, type);
-    }
-})
-const changeQuantityCart = (product_id, type) => {
-    let positionItemInCart = cart.findIndex((value) => value.product_id == product_id);
-    if(positionItemInCart >= 0){
-        let info = cart[positionItemInCart];
-        switch (type) {
-            case 'plus':
-                cart[positionItemInCart].quantity = cart[positionItemInCart].quantity + 1;
-                break;
-        
-            default:
-                let changeQuantity = cart[positionItemInCart].quantity - 1;
-                if (changeQuantity > 0) {
-                    cart[positionItemInCart].quantity = changeQuantity;
-                }else{
-                    cart.splice(positionItemInCart, 1);
+    const target = event.target;
+    if (target.classList.contains('plus') || target.classList.contains('minus')) {
+        const productId = target.dataset.id;
+        const itemIndex = cart.findIndex(item => item.product_id === productId);
+        if (itemIndex !== -1) {
+            if (target.classList.contains('plus')) {
+                cart[itemIndex].quantity++;
+            } else {
+                if (cart[itemIndex].quantity > 1) {
+                    cart[itemIndex].quantity--;
+                } else {
+                    cart.splice(itemIndex, 1); // Remove item if quantity becomes 0
                 }
-                break;
+            }
+            // Update cart display and save cart to localStorage
+            updateCart();
+            saveCart();
         }
     }
-    addCartToHTML();
-    addCartToMemory();
+});
+
+// Save cart to localStorage
+const saveCart = () => {
+    localStorage.setItem('cart', JSON.stringify(cart));
 }
 
+// Function to load cart from localStorage
+const loadCart = () => {
+    const savedCart = localStorage.getItem('cart');
+    if (savedCart) {
+        cart = JSON.parse(savedCart);
+        updateCart();
+    }
+}
+
+// Event listener for cart icon
+iconCart.addEventListener('click', () => {
+    body.classList.toggle('showCart');
+});
+
+// Event listener for close button
+closeCart.addEventListener('click', () => {
+    body.classList.remove('showCart');
+});
+
+// Initialize app
 const initApp = () => {
-    // get data product
+    // Fetch product data
     fetch('products.json')
     .then(response => response.json())
     .then(data => {
         products = data;
-        addDataToHTML();
-
-        // get data cart from memory
-        if(localStorage.getItem('cart')){
-            cart = JSON.parse(localStorage.getItem('cart'));
-            addCartToHTML();
-        }
-    })
+        loadCart();
+    });
 }
+// Event listener for cart item quantity buttons using event delegation
+listCartHTML.addEventListener('click', (event) => {
+    const target = event.target;
+    if (target.classList.contains('plus') || target.classList.contains('minus')) {
+        const productId = target.dataset.id;
+        const itemIndex = cart.findIndex(item => item.product_id === productId);
+        if (itemIndex !== -1) {
+            if (target.classList.contains('plus')) {
+                cart[itemIndex].quantity++;
+            } else {
+                if (cart[itemIndex].quantity > 1) {
+                    cart[itemIndex].quantity--;
+                } else {
+                    cart.splice(itemIndex, 1); // Remove item if quantity becomes 0
+                }
+            }
+            // Update cart display and save cart to localStorage
+            updateCart();
+            saveCart();
+        }
+    }
+});
+
+// Call initApp function to start the application
 initApp();
