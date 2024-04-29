@@ -42,11 +42,12 @@ body,.dropdown a:first-child{
 
 }
 
-  img{
+  #jhonny img{
     display: inline-block;
-    width: 100%;
-    max-width: 2rem;
-
+    max-width: 20%;
+    height: 60%;
+    padding: -50px;
+    
   }
   #shopping_cart img{
     width: 100%;
