@@ -11,6 +11,37 @@
     padding: 2rem;
     
 }
+.mycard{
+  box-shadow: 4px 4px 20px black;
+  transition: all .15s ease-in-out;
+  
+  
+  
+}
+.mycard:hover{
+  box-shadow: 12px 12px 25px black;
+  transform: scale(1.07); 
+
+}
+.mycard:active{
+  
+  cursor: pointer;
+  
+}
+.card-img-top{
+  pointer-events: none;
+  user-select: none;
+}
+.card-text, .card-title{
+  
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
 
 
 

@@ -19,6 +19,6 @@ document.querySelectorAll('.add-to-cart-button').forEach(function(addToCartButto
         addToCartButton.classList.add('clicked');
         setTimeout(function(){
             addToCartButton.classList.remove('clicked');
-        }, 2000); // Adjusted to match the animation duration
+        }, 2000); 
     });
 });
