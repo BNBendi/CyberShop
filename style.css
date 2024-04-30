@@ -163,11 +163,11 @@
     left: 32px;
     transform: rotate(63deg);
  }
-  .cart-icon {
-    left: 15px;
-    position: absolute;
-    top: 8px;
- }
+ .cart-icon {
+  left: 15px;
+  position: absolute;
+  top: 8px;
+}
   .tick {
     background: #2fbf30;
     border-radius: 50%;
@@ -409,6 +409,7 @@
   background-color: #EEEEE6;
   padding: 20px;
   border-radius: 20px;
+  
 }
 .listProduct .item h2{
   font-weight: 500;
@@ -417,6 +418,7 @@
 .listProduct .item .price{
   letter-spacing: 7px;
   font-size: small;
+  
 }
 .listProduct .item button{
   background-color: #353432;
@@ -430,7 +432,7 @@
 /* cart */
 .cartTab{
   width: 400px;
-  background-color: #353432;
+  background-color: #FFD300;
   color: #eee;
   position:fixed;
   top: 0;
@@ -444,9 +446,7 @@
 body.showCart .cartTab{
   right: 0;
 }
-body.showCart .cartcontainer{
-  transform: translateX(-250px);
-}
+
 .cartTab h1{
   padding: 20px;
   margin: 0;
@@ -457,7 +457,7 @@ body.showCart .cartcontainer{
   grid-template-columns: repeat(2, 1fr);
 }
 .cartTab button{
-  background-color: #E8BC0E;
+  background-color: #8d0ee8;
   border: none;
   
   font-weight: 500;
@@ -472,10 +472,19 @@ body.showCart .cartcontainer{
 .listCart .item{
   display: grid;
   grid-template-columns: 70px 150px 50px 1fr;
-  gap: 10px;
+  gap: 10rem;
+  
+  
   text-align: center;
-  align-items: center;
+  padding: 1rem;
+  align-items:center;
 }
+
+
+.listCart .item{
+  white-space: nowrap; /* Prevent text from breaking */
+}
+
 .listCart .quantity span{
   display: inline-block;
   width: 25px;
