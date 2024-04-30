@@ -82,10 +82,12 @@ body,.dropdown a:first-child{
     margin: 0;
     padding: 0;
   }
-  
+  footer{
+    background-color: black;
+  }
 
   
-  .background2 {
+   .background2 {
     position: relative; 
     width: 100%;
     height: 500px;
@@ -99,16 +101,8 @@ body,.dropdown a:first-child{
     max-height: 50%;
     object-fit: cover;
     z-index: 0;
-    
+    transform: scale(1);
   }
-  .video-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.7);
-  } 
 
   
 
