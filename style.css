@@ -22,6 +22,9 @@ body{
 .mycard{
   box-shadow: 4px 4px 20px black;
   transition: all .15s ease-in-out;
+  display: flex;
+  position: relative;
+  top: -12rem;
   
   
   
@@ -644,7 +647,7 @@ body,.dropdown a:first-child{
 
   #video-bg {
     position: absolute;
-    top: 0;
+    top: 0rem;
     left: 0;
     width: 100%;
     max-height: 50%; 
