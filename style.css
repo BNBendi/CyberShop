@@ -555,10 +555,9 @@ body,.dropdown a:first-child{
   height: 3px;
   background-color: green;
   margin: 5px 0;
-
-  background-color: #FCEE09;
+  background-color: #000;
   justify-content: center;
-
+  align-items: center;
 }
 
 .nav-list {
@@ -577,7 +576,7 @@ body,.dropdown a:first-child{
   color: green;
 }
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 950px) {
   .menu-icon {
     display: block;
   }
@@ -598,7 +597,7 @@ body,.dropdown a:first-child{
 .dropdown-menu {
   display: none;
   /*position: absolute;*/
-  position: static;
+  position: absolute;
   background-color: yellow;
   text-align: center;
   /*z-index: 1;*/
@@ -609,7 +608,7 @@ body,.dropdown a:first-child{
 
 }*/
 .dropdown:hover .dropdown-menu {
-  display: none;
+  display: block;
 }
 
   #johnny img{
@@ -618,18 +617,6 @@ body,.dropdown a:first-child{
     height: 60%;
     padding: -50px;
     
-  }
-  #shopping_cart img{
-    width: 100%;
-    max-width: 2rem;
-  }
-  #shopping_cart{
-    display: flex;
-    align-items: center;
-    float: right;
-  }
-  #shopping_cart span{
-    margin-left: 5px;
   }
   @media only screen and (max-width: 600px) {
     .menu-icon {
