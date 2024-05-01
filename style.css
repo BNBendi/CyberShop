@@ -96,6 +96,10 @@
     transition: 0.4s ease;
     width: auto;
  }
+#mybuttonforcheck{
+  color: black;
+  text-decoration: none;
+}
   .add-to-cart-button:active{
     -webkit-box-shadow: 0 0 0 0.2rem #FFD300;
     box-shadow: 0 0 0 0.2rem #FFD300;
@@ -218,7 +222,9 @@
  }
  /* Page style */
   .cartcontainer {
-    padding: 5rem;
+    padding: 1rem;
+    margin: 0.8rem;
+    scale: 0.8;
     align-items: center;
     display: flex;
     height: 5vh;
@@ -433,7 +439,7 @@
 /* cart */
 .cartTab{
   width: 400px;
-  background-color: #FFD300;
+  background-color:#050A0E;
   color: #eee;
   position:fixed;
   top: 0;
@@ -458,7 +464,7 @@ body.showCart .cartTab{
   grid-template-columns: repeat(2, 1fr);
 }
 .cartTab button{
-  background-color: #8d0ee8;
+  background-color: #00F0FF;
   border: none;
   
   font-weight: 500;
@@ -531,6 +537,7 @@ body,.dropdown a:first-child{
 }
 
 .navbar {
+
   background-color: yellow;
   display: flex;
   justify-content: space-between;
@@ -548,6 +555,10 @@ body,.dropdown a:first-child{
   height: 3px;
   background-color: green;
   margin: 5px 0;
+
+  background-color: #FCEE09;
+  justify-content: center;
+
 }
 
 .nav-list {
