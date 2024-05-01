@@ -225,6 +225,7 @@
   .cartcontainer {
     padding: 1rem;
     margin: 0.8rem;
+    cursor: pointer;
     scale: 0.8;
     align-items: center;
     display: flex;
