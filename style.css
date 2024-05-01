@@ -8,9 +8,13 @@
     row-gap: .5rem;
     
 }
+<<<<<<< HEAD
 body{
   background-color: #292222;
 }
+=======
+
+>>>>>>> 2c22543e4cd93b5d2ae00b4cc602342f5d6c2a36
 .col-12 {
     padding: 2rem;
     
@@ -99,6 +103,10 @@ body{
     transition: 0.4s ease;
     width: auto;
  }
+#mybuttonforcheck{
+  color: black;
+  text-decoration: none;
+}
   .add-to-cart-button:active{
     -webkit-box-shadow: 0 0 0 0.2rem #FFD300;
     box-shadow: 0 0 0 0.2rem #FFD300;
@@ -221,7 +229,10 @@ body{
  }
  /* Page style */
   .cartcontainer {
-    padding: 5rem;
+    padding: 1rem;
+    margin: 0.8rem;
+    cursor: pointer;
+    scale: 0.8;
     align-items: center;
     display: flex;
     height: 5vh;
@@ -436,7 +447,7 @@ body{
 /* cart */
 .cartTab{
   width: 400px;
-  background-color: #FFD300;
+  background-color:#050A0E;
   color: #eee;
   position:fixed;
   top: 0;
@@ -461,7 +472,7 @@ body.showCart .cartTab{
   grid-template-columns: repeat(2, 1fr);
 }
 .cartTab button{
-  background-color: #8d0ee8;
+  background-color: #00F0FF;
   border: none;
   
   font-weight: 500;
@@ -534,8 +545,27 @@ body,.dropdown a:first-child{
 }
 
 .navbar {
+
   background-color: yellow;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+}
+
+.menu-icon {
+  display: none;
+  cursor: pointer;
+}
+
+.bar {
+  width: 25px;
+  height: 3px;
+  background-color: green;
+  margin: 5px 0;
+  background-color: #000;
   justify-content: center;
+  align-items: center;
 }
 
 .nav-list {
@@ -543,31 +573,50 @@ body,.dropdown a:first-child{
   margin: 0;
   padding: 0;
   display: flex;
-
 }
 
 .nav-item {
   margin-right: 20px;
-  position: relative;
 }
 
 .nav-item a {
   text-decoration: none;
   color: green;
-  padding: 10px;
 }
 
+@media only screen and (max-width: 950px) {
+  .menu-icon {
+    display: block;
+  }
+
+  .nav-list {
+    display: none;
+  }
+
+  .nav-list.active {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .nav-item {
+    margin: 10px 0;
+  }
+}
 .dropdown-menu {
   display: none;
+  /*position: absolute;*/
   position: absolute;
   background-color: yellow;
   text-align: center;
-  z-index: 1;
+  /*z-index: 1;*/
 }
 
-.dropdown:hover .dropdown-menu {
+/*.dropdown:hover .dropdown-menu {
   display: block;
 
+}*/
+.dropdown:hover .dropdown-menu {
+  display: block;
 }
 
   #johnny img{
@@ -577,20 +626,11 @@ body,.dropdown a:first-child{
     padding: -50px;
     
   }
-  #shopping_cart img{
-    width: 100%;
-    max-width: 2rem;
+  @media only screen and (max-width: 600px) {
+    .menu-icon {
+      display: block;
+    }
   }
-  #shopping_cart{
-    display: flex;
-    align-items: center;
-    float: right;
-  }
-  #shopping_cart span{
-    margin-left: 5px;
-  }
-
-
 
   .background {
     position: relative; 
